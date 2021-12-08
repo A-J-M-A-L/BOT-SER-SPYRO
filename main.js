@@ -49,9 +49,9 @@ nocache('../message/help.js', module => console.log(color('[WATCH]', 'cyan'), co
 		width: 80,
 		whitespaceBreak: false
 	}), 'yellow'))
-	console.log(color('[JINN]', 'cyan'), color('WELCOME', 'white'))
-	console.log(color('[SER]', 'cyan'), color('BOT RUNNING', 'yellow'))
-	bosco.browserDescription = ["JINN SER OFC - [JINN-SER]", "edge", "3.0.0"];
+	console.log(color('[𝑺𝑷𝒀𝑹𝑶]', 'cyan'), color('WELCOME', 'white'))
+	console.log(color('[𝑺𝑬𝑹]', 'cyan'), color('BOT RUNNING', 'yellow'))
+	bosco.browserDescription = ["SPYRO SER - [SPYRO-SER]", "edge", "3.0.0"];
 
 	// Menunggu QR
 	bosco.on('qr', () => {
