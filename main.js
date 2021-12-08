@@ -42,7 +42,7 @@ nocache('../message/help.js', module => console.log(color('[WATCH]', 'cyan'), co
     const starts = async (bosco = new WAConnection()) => {
     bosco.version = [3,3234,9]
 	bosco.logger.level = 'warn'
-	console.log(color(figlet.textSync('JINN  SER  OFC', {
+	console.log(color(figlet.textSync('BOT SER SPYRO', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
@@ -125,7 +125,7 @@ nocache('../message/help.js', module => console.log(color('[WATCH]', 'cyan'), co
  @${num.split('@')[0]}
 `
 			promoteBut = [{buttonId:`hm`,buttonText:{displayText:'𝐂𝐨𝐧𝐠𝐫𝐚𝐭𝐬 𝐁𝐫𝐮𝐡..!'},type:1}]
-            promoteButt = { contentText: `${teks}`, footerText: `ℙ𝕣𝕠𝕞𝕠𝕥𝕖 𝔻𝕖𝕔𝕥𝕖𝕔𝕥𝕖𝕕`, buttons: promoteBut, headerType: 6, locationMessage: bosco2.message.locationMessage}
+            promoteButt = { contentText: `${teks}`, footerText: `𝑷𝑹𝑶𝑴𝑶𝑻𝑬 𝑫𝑬𝑪𝑻𝑬𝑪𝑻𝑬`, buttons: promoteBut, headerType: 6, locationMessage: bosco2.message.locationMessage}
             bosco.sendMessage(mdata.id, promoteButt, MessageType.buttonsMessage, { caption: 'hehe', "contextInfo": { "mentionedJid" : [num], },})
 		    } else if (anu.action == 'demote') {
 			num = anu.participants[0]
