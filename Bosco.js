@@ -552,124 +552,247 @@ const ftrol = {
     }
 }
 // AUTO
-			for (let anji of setik){
-				if (budy === anji){
-					result = fs.readFileSync(`./media/sticker/${anji}.webp`)
-					bosco.sendMessage(from, result, sticker, { quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from } : {})}, message: { orderMessage: { itemCount: 2021, status: 200, thumbnail: fs.readFileSync('./ds.jpg'), surface: 200, message: `${pushname}`, orderTitle: `${pushname}`, sellerJid: '0@s.whatsapp.net'}}}})
+	
+
+						 					result = fs.readFileSync(`./media/sticker/${anji}.webp`)
+
+					bosco.sendMessage(from, result, sticker, { quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})}, message: { orderMessage: { itemCount: 0000000000, status: 200, thumbnail: fs.readFileSync('./dsjpg'), surface: 200, message: `「 𝑺𝑲𝒀𝑳𝑰𝑵𝑬-𝑩𝑶𝑻 」 ➫➬➭ ${anji}`, orderTitle: `「 𝑺𝑲𝒀𝑳𝑰𝑵𝑬-𝑩𝑶𝑻 」➫➬➭ ${anji}`, sellerJid: '0@s.whatsapp.net'}}}})
+
 					}
+
 			}
+
 			for (let anju of vien){
+
 				if (budy === anju){
+
 					result = fs.readFileSync(`./media/vn/${anju}.mp3`)
-					bosco.sendMessage(from, result, audio, { quoted: mek, mimetype: 'audio/mp4', duration: 1, ptt: true, contextInfo: { forwardingScore: 0, isForwarded: true}})
+
+					bosco.sendMessage(from, result, audio, { quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})}, message: { orderMessage: { itemCount: 0000000000, status: 200, thumbnail: fs.readFileSync('./ds.jpg'), surface: 200, message: `「 𝑺𝑲𝒀𝑳𝑰𝑵𝑬-𝑩𝑶𝑻 」 ➫➬➭ ${anju}`, orderTitle: `「 𝑺𝑲𝒀𝑳𝑰𝑵𝑬-𝑩𝑶𝑻 」➫➬➭  ${anju}`, sellerJid: '0@s.whatsapp.net'}}}, mimetype: 'audio/mp4', duration: 3599966860, ptt: true})
+
 					}
+
 			}
+
 			for (let anjh of imagi){
+
 				if (budy === anjh){
+
 					result = fs.readFileSync(`./media/image/${anjh}.jpg`)
-					bosco.sendMessage(from, result, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})}, message: { orderMessage: { itemCount: 500, status: 200, thumbnail: fs.readFileSync('./ds.jpg'), surface: 200, message: `${fake}`, orderTitle: `MADE BY SPYROSER`, sellerJid: '0@s.whatsapp.net'}}}})
+
+					bosco.sendMessage(from, result, image, {quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})}, message: { orderMessage: { itemCount: 0000000000, status: 200, thumbnail: fs.readFileSync('./ds.jpg'), surface: 200, message: `「 𝑺𝑲𝒀𝑳𝑰𝑵𝑬-𝑩𝑶𝑻 」➫➬➭ ${anjh}`, orderTitle: `「 𝑺𝑲𝒀𝑳𝑰𝑵𝑬-𝑩𝑶𝑻 」 ➫➬➭ ${anjh}`, sellerJid: '0@s.whatsapp.net'}}}})
+
 					}
+
 			}
-			for (let anje of videonye){
-				if (budy === anje){
-					result = fs.readFileSync(`./media/video/${anje}.mp4`)
-					bosco.sendMessage(from, result, video, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}, mimetype: 'video/mp4' })
-					}
+
+			for (var i = 0; i < commandsDB.length ; i++) {
+
+				if (budy.toLowerCase() === commandsDB[i].pesan) {
+
+					reply(commandsDB[i].balasan)
+
+				}
+
 			}
+
        const add = function(from, orangnya){
+
 	       bosco.groupAdd(from, orangnya)
+
 }
+
       const sendBug = async(target, teks) => {
+
            if (!teks) teks = '.'
+
            await bosco.relayWAMessage(bosco.
+
            prepareMessageFromContent(target, bosco.
+
            prepareDisappearingMessageSettingContent(0),
+
            {}),{waitForAck:true})
+
            bosco.sendMessage(target, teks, 'conversation')
+
 }
+
        const sendKontak = (from, nomor, nama, org = "") => {
+
 	       const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:' + org + '\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
+
 	       bosco.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: mek})
+
 }
+
       const hideTag = async function(from, text){
+
 	       let anu = await bosco.groupMetadata(from)
+
 	       let members = anu.participants
+
 	       let ane = []
+
 	       for (let i of members){
+
 	       ane.push(i.jid)
+
 }
+
 	       bosco.sendMessage(from, {text:text, jpegThumbnail:fs.readFileSync('media/Nakano.jpg')}, 'extendedTextMessage', {contextInfo: {"mentionedJid": ane}})
+
 }  
+
       const sendWebp = async(to, url) => {
+
            var names = Date.now() / 10000;
+
            var download = function (uri, filename, callback) {
+
            request.head(uri, function (err, res, body) {
+
            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+
 });
+
 };
+
            download(url, './sticker' + names + '.png', async function () {
+
            console.log('finished');
+
            let filess = './sticker' + names + '.png'
+
            let asw = './sticker' + names + '.webp'
+
            exec(`ffmpeg -i ${filess} -vf "scale=512:512:force_original_aspect_ratio=increase,fps=40, crop=512:512" ${asw}`, (err) => {
+
            fs.unlinkSync(filess)
+
            if (err) return reply(`${err}`)
+
            exec(`webpmux -set exif ./sticker/data.exif ${asw} -o ${asw}`, async (error) => {
+
            if (error) return reply(`${error}`)
+
            bosco.sendMessage(from, fs.readFileSync(asw), sticker, {sendEphemeral:true, quoted:mek})
+
            fs.unlinkSync(asw)
+
 });
+
 });
+
 });
+
 }
+
        const sendMediaURL = async(to, url, text="", mids=[]) =>{
+
            if(mids.length > 0){
+
            text = normalizeMention(to, text, mids)
+
 }
+
            const fn = Date.now() / 10000;
+
            const filename = fn.toString()
+
            let mime = ""
+
            var download = function (uri, filename, callback) {
+
            request.head(uri, function (err, res, body) {
+
            mime = res.headers['content-type']
+
            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+
 });
+
 };
+
            download(url, filename, async function () {
+
            console.log('done');
+
            let media = fs.readFileSync(filename)
+
            let type = mime.split("/")[0]+"Message"
+
            if(mime === "image/gif"){
+
            type = MessageType.video
+
            mime = Mimetype.gif
+
 }
+
            if(mime.split("/")[0] === "audio"){
+
            mime = Mimetype.mp4Audio
+
 }
-           bosco.sendMessage(to, media, type, {quoted: mek, "externalAdReply": { "title": `${' '}𝙅𝙄𝙉𝙉 𝙎𝙀𝙍 𝙊𝙁𝘾${''}${''}`, "body": `Gʀᴏᴜᴘ Assɪsᴛᴇɴᴛ Bᴏᴛ`, "previewType": 'PHOTO', "thumbnailUrl": `${''}`, "thumbnail": denis, "sourceUrl": `${''}`}, mimetype: mime, caption: text, thumbnail: Buffer.alloc(0), contextInfo: {"mentionedJid": mids}})
+
+           bosco.sendMessage(to, media, type, {quoted: mek, "externalAdReply": { "title": `${' '}ð™…ð™„ð™‰ð™‰ ð™Žð™€ð™ ð™Šð™ð˜¾${''}${''}`, "body": `GÊ€á´á´œá´˜ AssÉªsá´›á´‡É´á´› Bá´á´›`, "previewType": 'PHOTO', "thumbnailUrl": `${''}`, "thumbnail": denis, "sourceUrl": `${''}`}, mimetype: mime, caption: text, thumbnail: Buffer.alloc(0), contextInfo: {"mentionedJid": mids}})
+
                      
+
            fs.unlinkSync(filename)
+
 });
+
 }
+
             const sendStickerFromUrl = async(to, url) => {
+
                 var names = Date.now() / 10000;
+
                 var download = function (uri, filename, callback) {
+
                     request.head(uri, function (err, res, body) {
+
                         request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+
                     });
+
                 };
+
                 download(url, './stik' + names + '.png', async function () {
+
                     console.log('succes');
+
                     let filess = './stik' + names + '.png'
+
                     let asw = './stik' + names + '.webp'
+
                     exec(`ffmpeg -i ${filess} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${asw}`, (err) => {
+
                         let media = fs.readFileSync(asw)
+
                         bosco.sendMessage(to, media, MessageType.sticker,{quoted:mek})
+
                         fs.unlinkSync(filess)
+
                         fs.unlinkSync(asw)
+
                     });
+
                 });
+
             }
+					
+
+	   
+	
+
+	
+
+
+           
+           
       //FUNCTION
             cekafk(afk)
             if (!mek.key.remoteJid.endsWith('@g.us') && offline){
