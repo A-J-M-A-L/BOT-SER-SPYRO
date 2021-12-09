@@ -42,7 +42,7 @@ nocache('../message/help.js', module => console.log(color('[WATCH]', 'cyan'), co
     const starts = async (bosco = new WAConnection()) => {
     bosco.version = [3,3234,9]
 	bosco.logger.level = 'warn'
-	console.log(color(figlet.textSync('BOT SER SPYRO', {
+	console.log(color(figlet.textSync('BOT  SER  SPYRO', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
@@ -152,27 +152,27 @@ nocache('../message/help.js', module => console.log(color('[WATCH]', 'cyan'), co
 
     bosco.on('group-update', async (anu) => {
     falfa = { key: {fromMe: false,participant: "0@s.whatsapp.net",
-   remoteJid: "0@s.whatsapp.net"},message: {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "mememteeeekkeke","groupName": "Alphabot", "caption": `☠️ 𝑱 𝑰 𝑵 𝑵 - 𝑺 𝑬 𝑹 ☠️`, 'jpegThumbnail': fs.readFileSync(`ds.jpg`)}}}
+   remoteJid: "0@s.whatsapp.net"},message: {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "mememteeeekkeke","groupName": "Alphabot", "caption": `𝑺𝒑𝒚𝒓𝒐 𝑺𝒆𝒓✰`, 'jpegThumbnail': fs.readFileSync(`ds.jpg`)}}}
     metdata = await bosco.groupMetadata(anu.jid)
     if(anu.announce == 'false'){
-    teks = `*[ 𝑮𝑹𝑶𝑼𝑷 𝑶𝑷𝑬𝑵𝑬𝑫 ]*\n`
+    teks = `*[ ɢʀᴏᴜᴘ ᴏᴘᴇɴᴇᴅ ]*\n`
     bosco.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
     console.log(clc.yellow(`[ Group Opened ] In ${metdata.subject}`))
   } else if(anu.announce == 'true'){
-    teks = `*[ 𝑮𝑹𝑶𝑼𝑷 𝑪𝑳𝑶𝑺𝑬𝑫 ]*\n`
+    teks = `*[ ɢʀᴏᴜᴘ ᴄʟᴏsᴇᴅ ]*\n`
     bosco.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
     console.log(clc.yellow(`[ Group Closed ] In ${metdata.subject}`))
   } else if(!anu.desc == ''){
     tag = anu.descOwner.split('@')[0] + '@s.whatsapp.net'
-    teks = `*[ 𝑮𝑹𝑶𝑼𝑷 𝑫𝑬𝑺𝑪𝑹𝑰𝑷𝑻𝑰𝑶𝑵 𝑪𝑯𝑨𝑵𝑮𝑬 ]*\n\n • *ɴᴇᴡ* : *${anu.desc}*`
+    teks = `*[ ɢʀᴏᴜᴘ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ᴄʜᴀɴɢᴇ ]*\n\n • *ɴᴇᴡ* : *${anu.desc}*`
     bosco.sendMessage(metdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [tag]}, quoted: falfa})
     console.log(clc.yellow(`[ Group Description Change ] In ${metdata.subject}`))
  } else if(anu.restrict == 'false'){
-    teks = `*[ 𝑮𝑹𝑶𝑼𝑷 𝑺𝑬𝑻𝑻𝑰𝑵𝑮 𝑪𝑯𝑨𝑵𝑮𝑬 ]*\n`
+    teks = `*[ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢ ᴄʜᴀɴɢᴇ ]*\n`
     bosco.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
     console.log(clc.yellow(`[ Group Setting Change ] In ${metdata.subject}`))
   } else if(anu.restrict == 'true'){
-    teks = `*[ 𝑮𝑹𝑶𝑼𝑷 𝑺𝑬𝑻𝑻𝑰𝑵𝑮 𝑪𝑯𝑨𝑵𝑮𝑬 ]*\n`
+    teks = `*[ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢ ᴄʜᴀɴɢᴇ ]*\n`
     bosco.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
     console.log(clc.yellow(`[ Group Setting Change ] In ${metdata.subject}`))
    }
