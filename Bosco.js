@@ -2815,24 +2815,25 @@ case 'emoji':
 					bosco.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": video } })
 					break
       case 'addvn':
-      case 'addbgm':
-					if (!isQuotedAudio) return reply('*Reply to Audio*')
+					if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+					if (!isQuotedAudio) return reply('ʀᴇᴘʟʏ ᴛᴏ ᴀᴜᴅɪᴏ')
 					nm = body.slice(7)
-					if (!nm) return reply('*What is The bgm name?*')
+					if (!nm) return reply('ᴡʜᴀᴛ ɪs ᴛʜᴇ ɴᴀᴍᴇ ?')
 					boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 					delb = await bosco.downloadMediaMessage(boij)
 					vien.push(`${nm}`)
 					fs.writeFileSync(`./media/vn/${nm}.mp3`, delb)
 					fs.writeFileSync('./database/vien.json', JSON.stringify(vien))
-					bosco.sendMessage(from, `*Bgm Added*`, MessageType.text, { quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})}, message: { orderMessage: { itemCount: 333, status: 200, thumbnail: fs.readFileSync('./ds.jpg'), surface: 200, message: `${nm}`, orderTitle: 'hehe', sellerJid: '0@s.whatsapp.net'}}}, contextInfo: { forwardingScore: 508, isForwarded: true}})
+					bosco.sendMessage(from, `ᴀᴅᴅᴇᴅ ᴛᴏ ʙɢᴍ ᴅᴀᴛᴀʙᴀsᴇ🥂`, MessageType.text, { quoted: mek })
 					break
-	 case 'delvn':
+					case 'delvn':
+					if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 					try {
 					 nmm = body.slice(7)
 					 wanu = vien.indexOf(nmm)
 					 vien.splice(wanu, 1)
 					 fs.unlinkSync(`./media/vn/${nmm}.mp3`)
-					bosco.sendMessage(from, `*Bgm Deleted*`, MessageType.text, { quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {})}, message: { orderMessage: { itemCount: 59, status: 200, thumbnail: fs.readFileSync('./ds.jpg'), surface: 200, message: '𝕵𝖎𝖓𝖓', orderTitle: '𝕾𝖊𝖗', sellerJid: '0@s.whatsapp.net'}}}, contextInfo: { forwardingScore: 508, isForwarded: true}})
+					reply(`ʙɢᴍ ᴅᴇʟᴇᴛᴇᴅ➬ ${body.slice(7)}`)
 					} catch (err){
 						console.log(err)
 						reply(mess.error.api)
